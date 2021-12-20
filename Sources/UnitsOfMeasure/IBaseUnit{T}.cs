@@ -1,8 +1,8 @@
 ﻿namespace UnitsOfMeasure;
 
-public interface IBaseUnit<T>// : IUnit where T : IUnit
+public interface IBaseUnit<T, TNumber>
 {
-    float Base { get; }
+    TNumber Base { get; }
 
     string Postfix { get; }
 }

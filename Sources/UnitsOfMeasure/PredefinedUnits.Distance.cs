@@ -1,30 +1,26 @@
-﻿
-namespace UnitsOfMeasure;
+﻿namespace UnitsOfMeasure;
 
-public struct Meter : IBaseUnit<Meter>
+public struct Meter<TNumber> : IBaseUnit<Meter<TNumber>, TNumber>
+    where TNumber : IMultiplicativeIdentity<TNumber, TNumber>
 {
     public string Postfix => "m";
 
-    public float Base => 1;
-
-    public static Unit<Meter, Meter> From(float a) => new(a);
+    public TNumber Base => TNumber.MultiplicativeIdentity;
 }
 
-public struct Kilometer : IBaseUnit<Meter>
+public struct Kilometer<TNumber> : IBaseUnit<Meter<TNumber>, TNumber>
+    where TNumber : IMultiplicativeIdentity<TNumber, TNumber>, IParseable<TNumber>
 {
     public string Postfix => "km";
 
-    public float Base => 1000;
-
-    public static Unit<Kilometer, Meter> From(float a) => new(a);
+    public TNumber Base => Constants<TNumber>.Number1000;
 }
 
-public struct Mile : IBaseUnit<Meter>
+public struct Mile<TNumber> : IBaseUnit<Meter<TNumber>, TNumber>
+    where TNumber : IMultiplicativeIdentity<TNumber, TNumber>, IParseable<TNumber>
 {
     public string Postfix => "mile";
 
-    public float Base => 1600;
-
-    public static Unit<Mile, Meter> From(float a) => new(a);
+    public TNumber Base => Constants<TNumber>.Number1609_34;
 }
 

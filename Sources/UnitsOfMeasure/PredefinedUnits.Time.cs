@@ -1,19 +1,17 @@
 ﻿namespace UnitsOfMeasure;
 
-public struct Second : IBaseUnit<Second>
+public struct Second<TNumber> : IBaseUnit<Second<TNumber>, TNumber>
+    where TNumber : IMultiplicativeIdentity<TNumber, TNumber>
 {
     public string Postfix => "s";
 
-    public float Base => 1;
-
-    public static Unit<Second, Second> From(float a) => new(a);
+    public TNumber Base => TNumber.MultiplicativeIdentity;
 }
 
-public struct Minute : IBaseUnit<Second>
+public struct Minute<TNumber> : IBaseUnit<Second<TNumber>, TNumber>
+    where TNumber : IMultiplicativeIdentity<TNumber, TNumber>, IParseable<TNumber>
 {
     public string Postfix => "min";
 
-    public float Base => 60;
-
-    public static Unit<Minute, Second> From(float a) => new(a);
+    public TNumber Base => Constants<TNumber>.Number60;
 }
