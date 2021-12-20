@@ -21,3 +21,5 @@ type Unit<'T, 'TBase, 'TNumber
 //         Ops.Add(a, b)
 
 let (+) a b = Ops.Add(a, b)
+
+let (/) a b = Ops.Divide(a, b)
