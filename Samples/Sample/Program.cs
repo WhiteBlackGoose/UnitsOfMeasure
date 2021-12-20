@@ -6,7 +6,7 @@ var distance = 5f.Meters();
 Console.WriteLine($"Distance: {distance}");
 var time = 4f.Seconds();
 Console.WriteLine($"Time: {time}");
-var speed = Ops.Divide(distance, time);
+var speed = distance.Divide(time);
 Console.WriteLine($"Speed: {speed}");
 
 Console.WriteLine($"\nLinear conversions\n{new string('-', 20)}");
