@@ -2,4 +2,4 @@
 
 var angle = 60f.Degrees();
 Console.WriteLine(angle);
-Console.WriteLine(angle.To(default(Radian<float>)));
+Console.WriteLine(angle.To<Radian<float>>());

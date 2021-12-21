@@ -8,7 +8,8 @@ public static class Ops
          where T2Base : struct, IBaseUnit<T2Base, TNumber>
          where T1 : struct, IBaseUnit<T1Base, TNumber>
          where T2 : struct, IBaseUnit<T2Base, TNumber>
-         where TNumber : IDivisionOperators<TNumber, TNumber, TNumber>
+         where TNumber : IDivisionOperators<TNumber, TNumber, TNumber>,
+            IMultiplyOperators<TNumber, TNumber, TNumber>
         => new(a.Float / b.Float);
 
     public static Unit<T1, TBase, TNumber> 
@@ -25,13 +26,7 @@ public static class Ops
         Square<T, TBase, TNumber>(this Unit<T, TBase, TNumber> a)
         where TBase : struct, IBaseUnit<TBase, TNumber>
         where T : struct, IBaseUnit<TBase, TNumber>
-        where TNumber : IMultiplyOperators<TNumber, TNumber, TNumber>
+        where TNumber : IMultiplyOperators<TNumber, TNumber, TNumber>,
+            IDivisionOperators<TNumber, TNumber, TNumber>
         => new(a.Float * a.Float);
-
-    public static Unit<TNew, TBase, TNumber> To<TOld, TNew, TBase, TNumber>(this Unit<TOld, TBase, TNumber> a, TNew typeInferenceHint = default)
-        where TBase : struct, IBaseUnit<TBase, TNumber>
-        where TOld : struct, IBaseUnit<TBase, TNumber>
-        where TNew : struct, IBaseUnit<TBase, TNumber>
-        where TNumber : IMultiplyOperators<TNumber, TNumber, TNumber>, IDivisionOperators<TNumber, TNumber, TNumber>
-        => new(a.Float * new TOld().Base / new TNew().Base);
 }
