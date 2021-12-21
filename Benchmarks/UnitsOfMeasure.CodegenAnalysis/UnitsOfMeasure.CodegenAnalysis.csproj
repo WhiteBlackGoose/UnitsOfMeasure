@@ -1,15 +1,15 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AngouriMath.Experimental" Version="1.4.0-preview.3" />
+    <PackageReference Include="CodegenAnalysis.Benchmarks" Version="0.1.0-alpha-1639660460-222ddd2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Sources\UnitsOfMeasure\UnitsOfMeasure.csproj" />
   </ItemGroup>
-
 </Project>
