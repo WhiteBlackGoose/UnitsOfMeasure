@@ -27,4 +27,11 @@ public static class Ops
         where T : struct, IBaseUnit<TBase, TNumber>
         where TNumber : IMultiplyOperators<TNumber, TNumber, TNumber>
         => new(a.Float * a.Float);
+
+    public static Unit<TNew, TBase, TNumber> To<TOld, TNew, TBase, TNumber>(this Unit<TOld, TBase, TNumber> a, TNew typeInferenceHint = default)
+        where TBase : struct, IBaseUnit<TBase, TNumber>
+        where TOld : struct, IBaseUnit<TBase, TNumber>
+        where TNew : struct, IBaseUnit<TBase, TNumber>
+        where TNumber : IMultiplyOperators<TNumber, TNumber, TNumber>, IDivisionOperators<TNumber, TNumber, TNumber>
+        => new(a.Float * new TOld().Base / new TNew().Base);
 }

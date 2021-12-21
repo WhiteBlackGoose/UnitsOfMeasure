@@ -21,4 +21,12 @@ public static class UoM
     public static Unit<Minute<T>, Second<T>, T> Minutes<T>(this T a)
         where T : IMultiplicativeIdentity<T, T>, IParseable<T>
         => new(a);
+
+    public static Unit<Degree<T>, Radian<T>, T> Degrees<T>(this T a)
+        where T : IMultiplicativeIdentity<T, T>, IParseable<T>
+        => new(a);
+
+    public static Unit<Radian<T>, Radian<T>, T> Radians<T>(this T a)
+        where T : IMultiplicativeIdentity<T, T>, IParseable<T>
+        => new(a);
 }
