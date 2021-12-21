@@ -12,4 +12,8 @@
     <ProjectReference Include="..\..\Sources\UnitsOfMeasure\UnitsOfMeasure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AngouriMath.Experimental" Version="1.4.0-preview.3" />
+  </ItemGroup>
+
 </Project>

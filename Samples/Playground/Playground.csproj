@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -7,6 +7,10 @@
     <Nullable>enable</Nullable>
     <EnablePreviewFeatures>True</EnablePreviewFeatures>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AngouriMath.Experimental" Version="1.4.0-preview.3" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Sources\UnitsOfMeasure\UnitsOfMeasure.csproj" />

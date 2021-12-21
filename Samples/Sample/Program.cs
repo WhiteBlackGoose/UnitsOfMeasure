@@ -1,4 +1,5 @@
-﻿using UnitsOfMeasure;
+﻿using AngouriMath.Extensions;
+using UnitsOfMeasure;
 using static UnitsOfMeasure.UoM;
 
 Console.WriteLine($"Naive case\n{new string('-', 20)}");
@@ -29,3 +30,17 @@ var area2 = 0.2.Miles().Square();
 Console.WriteLine($"Area 1: {area1}");
 Console.WriteLine($"Area 2: {area2}");
 Console.WriteLine($"Total area: {area1.Add(area2)}");
+
+Console.WriteLine($"\nSymbolic algebra formulas\n{new string('-', 20)}");
+
+var mass1 = "m_1".ToEntity().Kilograms();
+var mass2 = "m_2".ToEntity().Kilograms();
+var r = "(R - theta)".ToEntity().Meters();
+
+Console.WriteLine($"Mass1: {mass1}");
+Console.WriteLine($"Mass2: {mass2}");
+Console.WriteLine($"Radius: {r}");
+
+var formula = mass1.Add(mass2).Divide(r.Square());
+
+Console.WriteLine($"Gravity force or something: {formula}");
