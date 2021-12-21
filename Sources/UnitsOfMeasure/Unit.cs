@@ -10,9 +10,4 @@ public readonly record struct Unit<T, TBase, TNumber>(TNumber Float)
     public Unit<TNew, TBase, TNumber> To<TNew>()
         where TNew : struct, IBaseUnit<TBase, TNumber>
         => new(Float * new T().Base / new TNew().Base);
-
-    /*
-    this magic field can improve codegen
-    private readonly byte aaa = 3;
-    */
 }

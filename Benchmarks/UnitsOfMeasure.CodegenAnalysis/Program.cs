@@ -21,12 +21,15 @@ using Force = UnitsOfMeasure.Unit<
                     UnitsOfMeasure.Squared<UnitsOfMeasure.Meter<float>, UnitsOfMeasure.Meter<float>, float>,
                 float>,
                 float>;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 
 unsafe
 {
     Console.WriteLine(sizeof(Unit<Meter<float>, Meter<float>, float>));
 }
-CodegenBenchmarkRunner.Run<Bench>();
+// CodegenBenchmarkRunner.Run<Bench>();
+BenchmarkRunner.Run<Bench>();
 
 public class Bench
 {
@@ -62,14 +65,16 @@ public class Bench
 
     [CAAnalyze]
     [CASubject(typeof(Bench), "ComputeGravityForceFloats")]
-    public static void Floats()
+    [Benchmark]
+    public void Floats()
     {
         ComputeGravityForceFloats(5f, 10f, 10f);
     }
 
     [CAAnalyze]
     [CASubject(typeof(Bench), "ComputeGravityForceUoM")]
-    public static void UoM()
+    [Benchmark]
+    public void UoM()
     {
         ComputeGravityForceUoM(5f.Kilograms(), 10f.Kilograms(), 10f.Meters());
     }
