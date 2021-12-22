@@ -65,6 +65,13 @@ unloaded back to a regular "integer" register.
 
 Consider a simple function which calculates something looking similar to gravity force.
 
+Performance:
+
+| Method |     Mean |     Error |    StdDev |
+|------- |---------:|----------:|----------:|
+| Floats | 1.555 ns | 0.0734 ns | 0.1855 ns |
+|    UoM | 5.691 ns | 0.1553 ns | 0.3441 ns |
+
 #### For floats:
 
 ```cs
@@ -120,25 +127,3 @@ The codegen:
     00007FFBAB3B4524 4883C448             add       rsp,48h
     00007FFBAB3B4528 C3                   ret
 ```
-
-If we add a byte field it becomes very slightly better:
-```assembly
-    00007FFBAB3C4650 50                   push      rax
-    00007FFBAB3C4651 C5F877               vzeroupper
-    00007FFBAB3C4654 48894C2410           mov       [rsp+10h],rcx
-    00007FFBAB3C4659 4889542418           mov       [rsp+18h],rdx
-    00007FFBAB3C465E 4C89442420           mov       [rsp+20h],r8
-    00007FFBAB3C4663 C5FA10442410         vmovss    xmm0,[rsp+10h]
-    00007FFBAB3C4669 C5FA104C2418         vmovss    xmm1,[rsp+18h]
-    00007FFBAB3C466F C5FA58C1             vaddss    xmm0,xmm0,xmm1
-    00007FFBAB3C4673 C5FA104C2420         vmovss    xmm1,[rsp+20h]
-    00007FFBAB3C4679 C5F259C9             vmulss    xmm1,xmm1,xmm1
-    00007FFBAB3C467D C5FA5EC1             vdivss    xmm0,xmm0,xmm1
-    00007FFBAB3C4681 C5FA110424           vmovss    [rsp],xmm0
-    00007FFBAB3C4686 C644240403           mov       byte [rsp+4],3
-    00007FFBAB3C468B 488B0424             mov       rax,[rsp]
-    00007FFBAB3C468F 4883C408             add       rsp,8
-    00007FFBAB3C4693 C3                   ret
-```
-
-Still far from perfect.
