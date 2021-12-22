@@ -1,6 +1,6 @@
 # Units Of Measure
 
-Conceptual repo. Most advanced compile time safe units of measure for C#.
+Conceptual repo. Most advanced compile time safe units of measure for C#. Read about what's happening here on [medium](https://whiteblackgoose.medium.com/stay-safe-with-your-units-advanced-units-of-measure-in-net-f7d8b02af87e).
 
 Based on generic type safety, type argument inference, generic math.
 
