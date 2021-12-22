@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
+    <EnablePreviewFeatures>false</EnablePreviewFeatures>
   </PropertyGroup>
 
   <ItemGroup>

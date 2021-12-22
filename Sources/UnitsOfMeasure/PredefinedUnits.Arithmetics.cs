@@ -20,6 +20,5 @@ public struct Div<T1, T2, T1Base, T2Base, TNumber>
     where TNumber : IDivisionOperators<TNumber, TNumber, TNumber>
 {
     public TNumber Base => new T1().Base / new T2().Base;
-
     public string Postfix => $"({new T1().Postfix}/{new T2().Postfix})";
 }
