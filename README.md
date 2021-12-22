@@ -144,5 +144,30 @@ Let's compare to UnitsNet and F#'s UoMs.
 | Syntax              | 🥉 | 🥇 | 🥈 |
 | Type conversions    | 🥇 | 🥈 | 🥇 |
 | API richness        | 🥈 | 🥉 | 🥇 |
+| Unit name concision | 🥈 | 🥇 | 🥇 |
 
 \*Ext. is extendability (able to extend the built-in things). Extendability of units means you can add more units. Extendability of dimensions means you can add "dimensions" (e. g. length, mass, etc.).
+
+## Potential improvements
+
+Aside from adding the necessary types and operations, we could also generate `using`s for types. For instance,
+```cs
+[assembly: DefineUnit("Force", "kg/m^2")]
+```
+Generates
+```cs
+using Force = UnitsOfMeasure.Unit<
+                UnitsOfMeasure.Div<
+                    UnitsOfMeasure.Kilogram<float>,
+                    UnitsOfMeasure.Squared<UnitsOfMeasure.Meter<float>, UnitsOfMeasure.Meter<float>, float>,
+                    UnitsOfMeasure.Kilogram<float>,
+                    UnitsOfMeasure.Squared<UnitsOfMeasure.Meter<float>, UnitsOfMeasure.Meter<float>, float>,
+                float>,
+                UnitsOfMeasure.Div<
+                    UnitsOfMeasure.Kilogram<float>,
+                    UnitsOfMeasure.Squared<UnitsOfMeasure.Meter<float>, UnitsOfMeasure.Meter<float>, float>,
+                    UnitsOfMeasure.Kilogram<float>,
+                    UnitsOfMeasure.Squared<UnitsOfMeasure.Meter<float>, UnitsOfMeasure.Meter<float>, float>,
+                float>,
+                float>;
+```
