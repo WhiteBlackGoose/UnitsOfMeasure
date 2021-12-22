@@ -143,5 +143,6 @@ Let's compare to UnitsNet and F#'s UoMs.
 | No runtime dispatch | 🥇 | 🥇 | 🥈 |
 | Syntax              | 🥉 | 🥇 | 🥈 |
 | Type conversions    | 🥇 | 🥈 | 🥇 |
+| API richness        | 🥈 | 🥉 | 🥇 |
 
 \*Ext. is extendability (able to extend the built-in things). Extendability of units means you can add more units. Extendability of dimensions means you can add "dimensions" (e. g. length, mass, etc.).
