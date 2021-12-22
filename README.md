@@ -127,3 +127,21 @@ The codegen:
     00007FFBAB3B4524 4883C448             add       rsp,48h
     00007FFBAB3B4528 C3                   ret
 ```
+
+## Other solutions?
+
+Let's compare to UnitsNet and F#'s UoMs.
+
+| Criterion             | Goose's UoMs | F#'s UoMs | UnitsNet |
+|:---------------------:|:------------:|:---------:|:--------:|
+| Interop             | 🥇 | 🥈 | 🥇 |
+| Speed               | 🥈 | 🥇 | 🥉 |
+| Ext. of dimensions  | 🥇 | 🥇 | 🥈 |
+| Ext. of units       | 🥇 | 🥇 | 🥈 |
+| Compile time safety | 🥇 | 🥇 | 🥇 |
+| Custom numeric type | 🥇 | 🥈 | 🥉 |
+| No runtime dispatch | 🥇 | 🥇 | 🥈 |
+| Syntax              | 🥉 | 🥇 | 🥈 |
+| Type conversions    | 🥇 | 🥈 | 🥇 |
+
+\*Ext. is extendability (able to extend the built-in things). Extendability of units means you can add more units. Extendability of dimensions means you can add "dimensions" (e. g. length, mass, etc.).
