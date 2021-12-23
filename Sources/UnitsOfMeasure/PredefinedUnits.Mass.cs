@@ -19,7 +19,15 @@ public struct Tonn<TNumber> : IBaseUnit<Kilogram<TNumber>, TNumber>
 public struct Gram<TNumber> : IBaseUnit<Kilogram<TNumber>, TNumber>
     where TNumber : IMultiplicativeIdentity<TNumber, TNumber>, IParseable<TNumber>
 {
-    public string Postfix => "t";
+    public string Postfix => "g";
 
     public TNumber Base => Constants<TNumber>.Number0_001;
+}
+
+public struct Milligram<TNumber> : IBaseUnit<Kilogram<TNumber>, TNumber>
+    where TNumber : IMultiplicativeIdentity<TNumber, TNumber>, IParseable<TNumber>
+{
+    public string Postfix => "mg";
+
+    public TNumber Base => Constants<TNumber>.Number0_000001;
 }
